@@ -31,7 +31,7 @@ function App() {
 
   if (!session) {
     return (
-      <main className="page">
+      <main className="page page--center">
         <LoginForm onLogin={login} />
       </main>
     )

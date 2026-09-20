@@ -5,6 +5,11 @@
   padding: 24px;
 }
 
+.page--center {
+  align-items: center;
+  justify-content: center;
+}
+
 .clock-card {
   align-self: flex-start;
   background: var(--bg);
@@ -159,7 +164,6 @@ button:focus-visible {
 }
 
 .login-card {
-  align-self: flex-start;
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: 16px;
