@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
+import { LoginForm } from './components/LoginForm'
+import { useAuth } from './hooks/useAuth'
 
 type Display = 'digital' | 'analog'
 
@@ -20,11 +22,20 @@ function catalanTime(date: Date) {
 function App() {
   const [now, setNow] = useState(() => new Date())
   const [display, setDisplay] = useState<Display>('digital')
+  const { session, login, logout } = useAuth()
 
   useEffect(() => {
     const timer = window.setInterval(() => setNow(new Date()), 1000)
     return () => window.clearInterval(timer)
   }, [])
+
+  if (!session) {
+    return (
+      <main className="page">
+        <LoginForm onLogin={login} />
+      </main>
+    )
+  }
 
   const hours = String(now.getHours()).padStart(2, '0')
   const minutes = String(now.getMinutes()).padStart(2, '0')
@@ -36,6 +47,13 @@ function App() {
   return (
     <main className="page">
       <section className="clock-card" aria-labelledby="clock-title">
+        <div className="session-bar">
+          <span>Hola, {session.user.fullName ?? session.user.email}</span>
+          <button type="button" className="logout-button" onClick={logout}>
+            Tanca sessió
+          </button>
+        </div>
+
         <p className="eyebrow">FlowSync</p>
         <h1 id="clock-title">Rellotge</h1>
 

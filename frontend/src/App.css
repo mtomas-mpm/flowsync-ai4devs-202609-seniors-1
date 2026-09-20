@@ -7,7 +7,7 @@
 
 .clock-card {
   align-self: flex-start;
-  background: var(--surface);
+  background: var(--bg);
   border: 1px solid var(--border);
   border-radius: 16px;
   box-shadow: var(--shadow);
@@ -50,7 +50,7 @@
 }
 
 .display-switch button[aria-pressed='true'] {
-  background: var(--surface);
+  background: var(--bg);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16);
   color: var(--text-h);
   font-weight: 700;
@@ -95,10 +95,26 @@ button:focus-visible {
   position: absolute;
 }
 
-.hour-12 { left: 50%; top: 8px; transform: translateX(-50%); }
-.hour-3 { right: 8px; top: 50%; transform: translateY(-50%); }
-.hour-6 { bottom: 8px; left: 50%; transform: translateX(-50%); }
-.hour-9 { left: 8px; top: 50%; transform: translateY(-50%); }
+.hour-12 {
+  left: 50%;
+  top: 8px;
+  transform: translateX(-50%);
+}
+.hour-3 {
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.hour-6 {
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.hour-9 {
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+}
 
 .hand {
   background: var(--text-h);
@@ -110,9 +126,18 @@ button:focus-visible {
   width: 4px;
 }
 
-.hour-hand { height: 52px; }
-.minute-hand { height: 76px; }
-.second-hand { background: var(--accent); height: 84px; width: 2px; left: calc(50% - 1px); }
+.hour-hand {
+  height: 52px;
+}
+.minute-hand {
+  height: 76px;
+}
+.second-hand {
+  background: var(--accent);
+  height: 84px;
+  width: 2px;
+  left: calc(50% - 1px);
+}
 
 .clock-pin {
   background: var(--accent);
@@ -133,7 +158,100 @@ button:focus-visible {
   padding: 12px;
 }
 
+.login-card {
+  align-self: flex-start;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 24px;
+  text-align: left;
+  width: min(320px, 100%);
+}
+
+.login-card h1 {
+  font-size: 1.5rem;
+  margin: 4px 0 20px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.login-form label {
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.login-form input {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-h);
+  font: inherit;
+  padding: 10px 12px;
+}
+
+.login-form input:focus-visible {
+  outline: 3px solid var(--accent-border);
+  outline-offset: 1px;
+}
+
+.login-form button {
+  background: var(--accent);
+  border: 0;
+  border-radius: 8px;
+  color: var(--bg);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  margin-top: 8px;
+  padding: 10px 12px;
+}
+
+.login-form button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.login-error {
+  color: #d1273f;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.session-bar {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.session-bar span {
+  color: var(--text);
+  font-size: 0.85rem;
+}
+
+.logout-button {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.8rem;
+  padding: 6px 10px;
+}
+
 @media (max-width: 480px) {
-  .page { padding: 16px; }
-  .clock-card { padding: 20px; }
+  .page {
+    padding: 16px;
+  }
+  .clock-card,
+  .login-card {
+    padding: 20px;
+  }
 }
